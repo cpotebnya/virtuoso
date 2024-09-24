@@ -51,6 +51,7 @@ const canLoadMoreResults = useMemo(() => maxLoadedItems <= artPieces?.total && a
             {!searchTerm && !!departmentId && <Text fontSize="xs" color="red">Must include search term if department is selected</Text>}
             <Select
                 options={artDepartments}
+                placeholder="Department"
                 onChange={({ value }) => {
                     setDepartmentId(value)
                 }}
