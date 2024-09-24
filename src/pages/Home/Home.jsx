@@ -2,8 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Box, Input, Stack, Button, Text, Spinner } from '@chakra-ui/react'
 import { Select } from "chakra-react-select";
 import { getArtPieces, getArtDepartments } from '../../api/met-api'
-import { ImageModal } from '../../components';
-import SearchResults from '../../components/SearchResults';
+import { ImageModal, SearchResults } from '../../components';
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
