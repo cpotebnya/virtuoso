@@ -44,26 +44,18 @@ function SearchResultItem({ artPieceId, onImageClick }) {
             />
             <Stack>
                 <Heading size='md' paddingY="1rem">{artPiece?.title}</Heading>
-                <Flex justify="space-between" spacing="2px">
-                    <Heading size="sm">Object date</Heading>
-                    <Text>{getArtPieceInfo(artPiece?.objectDate)}</Text>
-                </Flex>
-                <Flex justify="space-between" spacing="2px">
-                    <Heading size="sm">Department</Heading> 
-                    <Text>{getArtPieceInfo(artPiece?.department)}</Text>
-                </Flex>
-                <Flex justify="space-between" spacing="2px">
-                    <Heading size="sm">Artist role</Heading> 
-                    <Text>{getArtPieceInfo(artPiece?.artistRole)}</Text>
-                </Flex>
-                <Flex justify="space-between" spacing="2px">
-                    <Heading size="sm">Artist name</Heading> 
-                    <Text>{getArtPieceInfo(artPiece?.artistDisplayName)}</Text>
-                </Flex>
-                <Flex justify="space-between" spacing="2px">
-                    <Heading size="sm">Artist nationality</Heading> 
-                    <Text>{getArtPieceInfo(artPiece?.artistNationality)}</Text>
-                </Flex>
+                {[
+                  { label: 'Object date', value: artPiece?.objectDate }, 
+                  { label: 'Department', value: artPiece?.department }, 
+                  { label: 'Artist role', value: artPiece?.artistRole },
+                  { label: 'Artist name', value: artPiece?.artistDisplayName },
+                  { label: 'Artist nationality', value: artPiece?.artistNationality }
+                ].map(({ label, value }) => (
+                  <Flex key={label} justify="space-between" spacing="2px">
+                      <Heading size="sm">{label}</Heading>
+                      <Text>{getArtPieceInfo(value)}</Text>
+                  </Flex>)
+                )}
                 {artPiece?.tags?.length && 
                   <Flex justify="space-between" spacing="2px">
                     <Heading size="sm">Tags</Heading> 
